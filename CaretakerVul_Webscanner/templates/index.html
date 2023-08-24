@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Security Header Scanner</title>
+</head>
+<body>
+    <h1>Security Header Scanner</h1>
+    <form method="post">
+        <label for="target_url">Enter Target URL:</label>
+        <input type="url" name="target_url" required>
+        <button type="submit">Scan</button>
+    </form>
+    
+    {% if missing_headers %}
+        <h2>Missing Security Headers:</h2>
+        <ul>
+            {% for header in missing_headers %}
+                <li>{{ header }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
